@@ -1,0 +1,17 @@
+[project]
+name = "research-assistant-agent"
+version = "0.1.0"
+description = "研究助理多智能体系统，基于agno框架实现"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "agno",
+    "streamlit",
+    "autogluon.tabular",
+    "shap",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "scipy",
+    "statsmodels"
+]

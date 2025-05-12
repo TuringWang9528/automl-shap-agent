@@ -1,0 +1,8 @@
+agno==1.4.6
+autogluon==1.3.0
+matplotlib==3.10.3
+numpy==2.2.5
+pandas==2.2.3
+scikit_learn==1.6.1
+shap==0.47.2
+streamlit==1.45.0
