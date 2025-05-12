@@ -1,19 +1,15 @@
-# 研究助理多智能体系统
+# AutoML and SHAP Analysis Assistant
 
-这是一个基于agno框架的研究助理多智能体系统，使用Streamlit实现用户界面。该系统集成了三个专业智能体，协同工作以提供全面的数据分析和机器学习功能。
+这是一个基于agno框架的AutoML和SHAP分析助理，使用Streamlit实现用户界面。
 
 ## 功能特点
 
-系统包含三个专业智能体：
+目前该应用主要实现以下两个功能：
 
-1. **自动机器学习智能体**：使用AutoGluon框架对用户上传的数据进行自动化机器学习建模，自动选择最佳模型。
+1. **自动机器学习**：使用AutoGluon框架对用户上传的数据进行自动化机器学习建模，自动选择最佳模型。使用Gemini智能体对结果进行解释。
 
-2. **SHAP分析智能体**：对训练好的模型进行SHAP可解释性分析，生成特征重要性图表和依赖图，帮助用户理解模型决策过程。
+2. **SHAP分析**：对训练好的模型进行SHAP可解释性分析，生成特征重要性图表和依赖图，帮助用户理解模型决策过程。使用Gemini智能体对图片进行解释。
 
-3. **统计分析智能体**：提供全面的数据统计分析功能，包括：
-   - 描述性统计分析：数值型和类别型变量的统计指标
-   - 相关性分析：变量间相关性热图
-   - 差异性分析：支持t检验和ANOVA分析，并提供可视化结果
 
 ## 安装指南
 
@@ -26,42 +22,43 @@
 1. 克隆仓库：
 
 ```bash
-git clone <仓库地址>
-cd research-assistant-agent
+git clone https://github.com/guifou/automl-shap-agent.git
+cd automl-shap-agent
+```
+
+2. 创建并激活虚拟环境：
+
+```bash
+uv venv
+source .venv/bin/activate # macOS/Linux
+.venv\Scripts\activate # Windows
 ```
 
 2. 使用uv安装依赖：
 
 ```bash
-uv pip install -e .
+uv pip install -r requirements.txt
 ```
 
-或者直接安装所需依赖：
-
-```bash
-uv pip install agno streamlit autogluon.tabular shap pandas numpy matplotlib scipy statsmodels
-```
 
 ## 使用方法
 
 1. 启动应用：
 
 ```bash
-streamlit run main.py
+streamlit run agent.py
 ```
 
 2. 在浏览器中打开显示的URL（通常是 http://localhost:8501）
 
 3. 使用流程：
-   - 上传CSV格式的数据文件
+   - 上传数据文件
    - 选择目标变量（用于机器学习建模的目标列）
    - 在不同标签页中使用各种分析功能：
-     - **统计分析**：查看描述性统计、相关性分析和差异性分析
      - **自动机器学习**：设置训练时间并训练模型
      - **SHAP分析**：查看模型可解释性分析结果
 
 ## 注意事项
 
-- 上传的CSV文件应包含完整的数据，没有缺失值或已经处理过缺失值
 - 对于大型数据集，自动机器学习过程可能需要较长时间
 - SHAP分析需要先完成自动机器学习模型训练
