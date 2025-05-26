@@ -6,3 +6,4 @@ pandas==2.2.3
 scikit_learn==1.6.1
 shap==0.47.2
 streamlit==1.45.0
+mcp
